@@ -88,6 +88,27 @@ git config --global http.sslVerify false
 
 git config --global http.sslVerify true
 
+Heroku
+------
+
+https://devcenter.heroku.com/articles/getting-started-with-python#set-up
+
+heroku login
+
+heroku create fastapi-jkiragu # Unique
+
+C:\Users\james.kiruri\Documents\FILES\PROJECTS\FastAPI>git remote
+heroku
+origin
+
+git push heroku main
+
+remote:        https://fastapi-jkiragu.herokuapp.com/ deployed to Heroku
+remote:
+remote: This app is using the Heroku-20 stack, however a newer stack is available.
+remote: To upgrade to Heroku-22, see:
+remote: https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack
+
 DB Time 2:20 - 4:10
 
 Ended at 4:55:26
