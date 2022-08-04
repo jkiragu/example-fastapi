@@ -1,0 +1,107 @@
+py -3 -m venv <name>
+
+venv\Scripts\activate.bat
+
+pip install fastapi[all]
+
+
+Collecting websockets>=10.0; extra == "standard" (from uvicorn[standard]<0.18.0,>=0.12.0; extra == "all"->fastapi[all])
+  Could not find a version that satisfies the requirement websockets>=10.0; extra == "standard" (from uvicorn[standard]<0.18.0,>=0.12.0; extra == "all"->fastapi[all]) (from versions: 1.0, 2.0, 2.1, 2.2, 2.3, 
+2.4, 2.5, 2.6, 2.7, 3.0, 3.1, 3.2, 3.3, 3.4, 4.0, 4.0.1, 5.0, 5.0.1, 6.0, 7.0, 8.0, 8.0.1, 8.0.2, 8.1, 9.0, 9.0.1, 9.0.2, 9.1)
+No matching distribution found for websockets>=10.0; extra == "standard" (from uvicorn[standard]<0.18.0,>=0.12.0; extra == "all"->fastapi[all])
+You are using pip version 18.1, however version 21.3.1 is available.
+You should consider upgrading via the 'python -m pip install --upgrade pip' command.
+
+# show all installed packages
+pip freeze
+
+# Start Webserver
+uvicorn main:app --reload
+
+pip install psycopg2
+pip install sqlalchemy
+pip install --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org passlib[bcrypt]
+pip install --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org python-jose[cryptography]
+pip install  --trusted-host=pypi.python.org --trusted-host=pypi.org --trusted-host=files.pythonhosted.org alembic
+
+alembic init <directory>
+alembic init alembic
+
+alembic revision -m "create posts table"
+
+# Get current version
+alembic current
+
+# Get latest version
+alembic heads 
+
+# Upgrade to latest version
+alembic upgrade head
+
+# Downgrade to a revision
+alembic downgrade 28f4fb65ba8b
+
+# Downgrade to previous version
+alembic downgrade -1
+
+on env.py
+from app.database import Base
+
+target_metadata = Base.metadata
+
+on alembic.ini
+sqlalchemy.url = postgresql://
+
+# autogenerate table
+alembic revision --autogenerate -m "Auto-vote"
+
+# Added a new column to models
+phone_number = Column(String)
+
+alembic revision --autogenerate -m "Add phone number"
+
+
+fetch('http://localhost:8000/').then(res=>res.json()).then(console.log)
+# Git
+-----
+.gitignore
+  __pycache__
+  venv/
+  .env
+
+pip freeze > requirements.txt
+
+pip install -r requirements.txt
+
+echo "# example-fastapi" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/jkiragu/example-fastapi.git
+git push -u origin main
+
+(venv) C:\Users\james.kiruri\Documents\FILES\PROJECTS\FastAPI>git push -u origin main
+fatal: unable to access 'https://github.com/jkiragu/example-fastapi.git/': SSL certificate problem: unable to get local issuer certificate
+
+git config --global http.sslVerify false
+
+git config --global http.sslVerify true
+
+DB Time 2:20 - 4:10
+
+Ended at 4:55:26
+
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NTkxMTgzOTJ9.hqqBLTxWwBd-eMYFFeYkLwmJ7RPPTGfcKCvPKXqdK6U
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NTkzNDY2Mzd9.oqyA1emfcrsUnaEJhOS19KRsLT7Xfo6lLIx831nsXZ0
+
+On the headers
+--------------
+Authorization       Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NTkzNDQ0MzZ9.qrROqDsaANyL1j4YWbnsdur-JUnq_WLNzfB9Om_2i-E
+
+Likes
+-----
+select posts.*, COUNT(votes.post_id) as votes from posts LEFT JOIN votes ON posts.id = votes.post_id group by posts.id;
+
+select posts.*, COUNT(votes.post_id) as votes from posts LEFT JOIN votes ON posts.id = votes.post_id where post.id = 1 group by posts.id;
