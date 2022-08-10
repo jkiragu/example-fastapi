@@ -109,6 +109,27 @@ remote: This app is using the Heroku-20 stack, however a newer stack is availabl
 remote: To upgrade to Heroku-22, see:
 remote: https://devcenter.heroku.com/articles/upgrading-to-the-latest-stack
 
+heroku logs -t
+
+heroku addons:create heroku-postgresql:hobby-dev
+
+C:\Users\james.kiruri\Documents\FILES\PROJECTS\FastAPI>heroku addons:create heroku-postgresql:hobby-dev
+ »   Warning: heroku update available from 7.53.0 to 7.60.2.
+Creating heroku-postgresql:hobby-dev on ⬢ fastapi-jkiragu... free
+Database has been created and is available
+ ! This database is empty. If upgrading, you can transfer
+ ! data from another database with pg:copy
+Created postgresql-curly-64867 as DATABASE_URL
+Use heroku addons:docs heroku-postgresql to view documentation
+
+heroku ps:restart
+
+# get app info 
+heroku apps:info fastapi-jkiragu
+
+heroku run "alembic upgrade head"
+
+
 DB Time 2:20 - 4:10
 
 Ended at 4:55:26
